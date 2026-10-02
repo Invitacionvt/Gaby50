@@ -1,0 +1,1658 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color"
+          content="#f5f0e8">
+
+    <title>Celebrando mis 50 | Gaby</title>
+
+
+    <style>
+
+        /* =====================================================
+           CONFIGURACIÓN GENERAL
+        ===================================================== */
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+
+            margin: 0;
+
+            background:
+                #e9e0d5;
+
+            color:
+                #665449;
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            overflow-x: hidden;
+        }
+
+
+        /* =====================================================
+           PANTALLA DE INICIO
+        ===================================================== */
+
+        .pantalla-inicio {
+
+            position: fixed;
+
+            inset: 0;
+
+            z-index: 9999;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background:
+                #f4eee5;
+
+            transition:
+                opacity 1s ease,
+                visibility 1s ease;
+        }
+
+
+        .pantalla-inicio.oculta {
+
+            opacity: 0;
+
+            visibility: hidden;
+
+            pointer-events: none;
+        }
+
+
+        .inicio-contenido {
+
+            width: 90%;
+
+            max-width: 500px;
+
+            text-align: center;
+
+            padding: 45px 25px;
+
+            border:
+                1px solid #c3a56e;
+
+            background:
+                rgba(255,255,255,.55);
+
+            box-shadow:
+                0 15px 50px
+                rgba(80,60,40,.12);
+        }
+
+
+        .inicio-pequeno {
+
+            font-size: 12px;
+
+            letter-spacing: 4px;
+
+            text-transform: uppercase;
+
+            color:
+                #9e9383;
+
+            margin-bottom: 20px;
+        }
+
+
+        .inicio-nombre {
+
+            font-size: clamp(55px, 16vw, 90px);
+
+            font-style: italic;
+
+            font-weight: normal;
+
+            color:
+                #755e50;
+
+            margin-bottom: 5px;
+        }
+
+
+        .inicio-linea {
+
+            width: 90px;
+
+            height: 1px;
+
+            margin: 20px auto;
+
+            background:
+                #b99b62;
+
+            position: relative;
+        }
+
+
+        .inicio-linea::before,
+        .inicio-linea::after {
+
+            content: "✦";
+
+            position: absolute;
+
+            top: -8px;
+
+            color:
+                #b99b62;
+
+            font-size: 12px;
+        }
+
+
+        .inicio-linea::before {
+            left: -18px;
+        }
+
+
+        .inicio-linea::after {
+            right: -18px;
+        }
+
+
+        .inicio-titulo {
+
+            font-size: 25px;
+
+            font-weight: normal;
+
+            color:
+                #a18150;
+
+            margin-bottom: 30px;
+        }
+
+
+        .boton-entrar {
+
+            border: 1px solid #b79a63;
+
+            background:
+                transparent;
+
+            color:
+                #765e50;
+
+            padding:
+                14px 35px;
+
+            font-family:
+                Georgia,
+                serif;
+
+            letter-spacing: 2px;
+
+            cursor: pointer;
+
+            transition:
+                all .3s ease;
+        }
+
+
+        .boton-entrar:hover {
+
+            background:
+                #b79a63;
+
+            color:
+                white;
+        }
+
+
+
+        /* =====================================================
+           INVITACIÓN
+        ===================================================== */
+
+        .invitacion {
+
+            position: relative;
+
+            width: 100%;
+
+            max-width: 760px;
+
+            min-height: 100vh;
+
+            margin: auto;
+
+            overflow: hidden;
+
+            background-image:
+                url("fondo-floral.jpg");
+
+            background-size:
+                cover;
+
+            background-position:
+                center top;
+
+            background-repeat:
+                no-repeat;
+        }
+
+
+        /*
+        Capa muy ligera para que el texto
+        se lea sin perder el fondo floral.
+        */
+
+        .invitacion::before {
+
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            background:
+                rgba(255,252,246,.08);
+
+            pointer-events: none;
+        }
+
+
+        .contenido {
+
+            position: relative;
+
+            z-index: 2;
+
+            width: 100%;
+
+            min-height: 100vh;
+
+            padding:
+                80px 35px 90px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            text-align: center;
+        }
+
+
+
+        /* =====================================================
+           ENCABEZADO
+        ===================================================== */
+
+        .encabezado-pequeno {
+
+            font-size: 12px;
+
+            letter-spacing: 4px;
+
+            text-transform: uppercase;
+
+            color:
+                #8d755e;
+
+            margin-bottom: 12px;
+
+            animation:
+                aparecer 1.2s ease both;
+        }
+
+
+        .nombre {
+
+            font-size:
+                clamp(65px, 15vw, 110px);
+
+            font-weight:
+                normal;
+
+            font-style:
+                italic;
+
+            line-height:
+                .9;
+
+            color:
+                #715a4d;
+
+            text-shadow:
+                0 2px 1px
+                rgba(255,255,255,.8);
+
+            animation:
+                aparecer 1.4s ease both;
+        }
+
+
+        .separador {
+
+            width: 105px;
+
+            height: 1px;
+
+            background:
+                #b99b61;
+
+            margin:
+                25px auto;
+
+            position: relative;
+        }
+
+
+        .separador::before,
+        .separador::after {
+
+            content:
+                "✦";
+
+            position:
+                absolute;
+
+            top:
+                -8px;
+
+            font-size:
+                11px;
+
+            color:
+                #b99b61;
+        }
+
+
+        .separador::before {
+            left: -18px;
+        }
+
+
+        .separador::after {
+            right: -18px;
+        }
+
+
+        .titulo {
+
+            font-size:
+                clamp(24px, 6vw, 38px);
+
+            font-weight:
+                normal;
+
+            color:
+                #a08050;
+
+            letter-spacing:
+                1px;
+
+            animation:
+                aparecer 1.6s ease both;
+        }
+
+
+
+        /* =====================================================
+           NÚMERO 50
+        ===================================================== */
+
+        .numero-50 {
+
+            margin-top:
+                25px;
+
+            font-size:
+                clamp(120px, 30vw, 210px);
+
+            line-height:
+                .8;
+
+            font-weight:
+                normal;
+
+            color:
+                transparent;
+
+            -webkit-text-stroke:
+                1.5px #b49660;
+
+            text-shadow:
+                3px 3px 0
+                rgba(180,150,95,.13);
+
+            animation:
+                aparecer 1.8s ease both;
+        }
+
+
+
+        /* =====================================================
+           FECHA
+        ===================================================== */
+
+        .fecha {
+
+            margin-top:
+                30px;
+
+            font-size:
+                clamp(18px, 4vw, 23px);
+
+            letter-spacing:
+                3px;
+
+            text-transform:
+                uppercase;
+
+            color:
+                #705b4e;
+        }
+
+
+        .hora {
+
+            margin-top:
+                9px;
+
+            font-size:
+                18px;
+
+            letter-spacing:
+                2px;
+
+            color:
+                #a08050;
+        }
+
+
+
+        /* =====================================================
+           MENSAJE
+        ===================================================== */
+
+        .mensaje {
+
+            width:
+                90%;
+
+            max-width:
+                500px;
+
+            margin:
+                35px auto 0;
+
+            font-size:
+                16px;
+
+            line-height:
+                1.8;
+
+            color:
+                #6e5b50;
+        }
+
+
+
+        /* =====================================================
+           CUENTA REGRESIVA
+        ===================================================== */
+
+        .contador-titulo {
+
+            margin-top:
+                38px;
+
+            font-size:
+                11px;
+
+            letter-spacing:
+                3px;
+
+            text-transform:
+                uppercase;
+
+            color:
+                #9b7d53;
+        }
+
+
+        .contador {
+
+            display:
+                flex;
+
+            justify-content:
+                center;
+
+            gap:
+                10px;
+
+            margin-top:
+                15px;
+
+            flex-wrap:
+                wrap;
+        }
+
+
+        .contador-caja {
+
+            width:
+                67px;
+
+            height:
+                67px;
+
+            display:
+                flex;
+
+            flex-direction:
+                column;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            border:
+                1px solid
+                rgba(177,148,94,.75);
+
+            background:
+                rgba(255,255,255,.42);
+
+            box-shadow:
+                0 5px 20px
+                rgba(100,75,50,.07);
+        }
+
+
+        .contador-numero {
+
+            font-size:
+                23px;
+
+            color:
+                #755e50;
+        }
+
+
+        .contador-texto {
+
+            margin-top:
+                3px;
+
+            font-size:
+                8px;
+
+            letter-spacing:
+                1px;
+
+            text-transform:
+                uppercase;
+
+            color:
+                #a08460;
+        }
+
+
+
+        /* =====================================================
+           BOTONES
+        ===================================================== */
+
+        .botones {
+
+            width:
+                100%;
+
+            display:
+                flex;
+
+            flex-direction:
+                column;
+
+            align-items:
+                center;
+
+            gap:
+                12px;
+
+            margin-top:
+                35px;
+        }
+
+
+        .boton {
+
+            width:
+                85%;
+
+            max-width:
+                320px;
+
+            padding:
+                14px 20px;
+
+            text-decoration:
+                none;
+
+            text-align:
+                center;
+
+            font-size:
+                14px;
+
+            letter-spacing:
+                1.5px;
+
+            transition:
+                all .3s ease;
+        }
+
+
+        .boton-whatsapp {
+
+            background:
+                #9d8059;
+
+            color:
+                #fff;
+
+            border:
+                1px solid
+                #9d8059;
+
+            box-shadow:
+                0 6px 18px
+                rgba(120,90,50,.15);
+        }
+
+
+        .boton-maps {
+
+            background:
+                rgba(255,255,255,.35);
+
+            color:
+                #765e50;
+
+            border:
+                1px solid
+                #b79a63;
+        }
+
+
+        .boton:hover {
+
+            transform:
+                translateY(-3px);
+
+            box-shadow:
+                0 8px 20px
+                rgba(100,75,50,.15);
+        }
+
+
+
+        /* =====================================================
+           MÚSICA
+        ===================================================== */
+
+        .boton-musica {
+
+            position:
+                fixed;
+
+            z-index:
+                100;
+
+            right:
+                18px;
+
+            bottom:
+                18px;
+
+            width:
+                52px;
+
+            height:
+                52px;
+
+            border-radius:
+                50%;
+
+            border:
+                1px solid
+                #b79a63;
+
+            background:
+                rgba(255,255,255,.88);
+
+            color:
+                #977b52;
+
+            cursor:
+                pointer;
+
+            font-size:
+                19px;
+
+            box-shadow:
+                0 5px 20px
+                rgba(80,60,40,.15);
+        }
+
+
+        .boton-musica.activa {
+
+            animation:
+                girar 3s linear infinite;
+        }
+
+
+        @keyframes girar {
+
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+
+
+        /* =====================================================
+           PÉTALOS
+        ===================================================== */
+
+        .petalo {
+
+            position:
+                fixed;
+
+            top:
+                -30px;
+
+            z-index:
+                3;
+
+            pointer-events:
+                none;
+
+            color:
+                rgba(180,150,110,.45);
+
+            font-size:
+                14px;
+
+            animation:
+                caer linear forwards;
+        }
+
+
+        @keyframes caer {
+
+            0% {
+
+                transform:
+                    translateY(-30px)
+                    rotate(0deg);
+
+                opacity:
+                    0;
+            }
+
+            15% {
+
+                opacity:
+                    .7;
+            }
+
+            100% {
+
+                transform:
+                    translateY(110vh)
+                    rotate(360deg);
+
+                opacity:
+                    0;
+            }
+        }
+
+
+
+        /* =====================================================
+           ANIMACIONES
+        ===================================================== */
+
+        @keyframes aparecer {
+
+            from {
+
+                opacity:
+                    0;
+
+                transform:
+                    translateY(15px);
+            }
+
+            to {
+
+                opacity:
+                    1;
+
+                transform:
+                    translateY(0);
+            }
+        }
+
+
+
+        /* =====================================================
+           MÓVIL
+        ===================================================== */
+
+        @media (max-width: 600px) {
+
+            .contenido {
+
+                padding:
+                    65px 22px 80px;
+            }
+
+
+            .encabezado-pequeno {
+
+                font-size:
+                    10px;
+
+                letter-spacing:
+                    3px;
+            }
+
+
+            .nombre {
+
+                font-size:
+                    72px;
+            }
+
+
+            .titulo {
+
+                font-size:
+                    27px;
+            }
+
+
+            .numero-50 {
+
+                font-size:
+                    145px;
+            }
+
+
+            .fecha {
+
+                font-size:
+                    16px;
+
+                letter-spacing:
+                    2px;
+            }
+
+
+            .hora {
+
+                font-size:
+                    16px;
+            }
+
+
+            .mensaje {
+
+                font-size:
+                    15px;
+
+                width:
+                    92%;
+            }
+
+
+            .contador {
+
+                gap:
+                    6px;
+            }
+
+
+            .contador-caja {
+
+                width:
+                    61px;
+
+                height:
+                    61px;
+            }
+
+
+            .contador-numero {
+
+                font-size:
+                    21px;
+            }
+
+
+            .boton {
+
+                width:
+                    90%;
+            }
+        }
+
+
+
+        /* =====================================================
+           MÓVILES PEQUEÑOS
+        ===================================================== */
+
+        @media (max-width: 380px) {
+
+            .contenido {
+
+                padding-top:
+                    55px;
+            }
+
+
+            .nombre {
+
+                font-size:
+                    65px;
+            }
+
+
+            .numero-50 {
+
+                font-size:
+                    125px;
+            }
+
+
+            .contador-caja {
+
+                width:
+                    56px;
+
+                height:
+                    58px;
+            }
+
+
+            .contador-numero {
+
+                font-size:
+                    19px;
+            }
+
+
+            .contador-texto {
+
+                font-size:
+                    7px;
+            }
+        }
+
+
+
+        /* =====================================================
+           ESCRITORIO
+        ===================================================== */
+
+        @media (min-width: 761px) {
+
+            .invitacion {
+
+                min-height:
+                    100vh;
+
+                box-shadow:
+                    0 0 50px
+                    rgba(70,50,30,.15);
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         PANTALLA INICIAL
+    ===================================================== -->
+
+    <div class="pantalla-inicio" id="pantallaInicio">
+
+        <div class="inicio-contenido">
+
+            <div class="inicio-pequeno">
+                Una celebración especial
+            </div>
+
+            <div class="inicio-nombre">
+                Gaby
+            </div>
+
+            <div class="inicio-linea"></div>
+
+            <div class="inicio-titulo">
+                Celebrando mis 50
+            </div>
+
+            <button
+                class="boton-entrar"
+                id="botonEntrar">
+
+                ABRIR INVITACIÓN
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         INVITACIÓN
+    ===================================================== -->
+
+    <main class="invitacion">
+
+
+        <section class="contenido">
+
+
+            <!-- ENCABEZADO -->
+
+            <div class="encabezado-pequeno">
+
+                Con mucha alegría
+
+            </div>
+
+
+            <h1 class="nombre">
+
+                Gaby
+
+            </h1>
+
+
+            <div class="separador"></div>
+
+
+            <h2 class="titulo">
+
+                Celebrando mis 50
+
+            </h2>
+
+
+            <!-- NÚMERO -->
+
+            <div class="numero-50">
+
+                50
+
+            </div>
+
+
+            <!-- FECHA -->
+
+            <div class="fecha">
+
+                31 de octubre de 2026
+
+            </div>
+
+
+            <div class="hora">
+
+                6:00 PM
+
+            </div>
+
+
+
+            <!-- MENSAJE -->
+
+            <p class="mensaje">
+
+                Hay momentos que merecen ser celebrados
+                y personas que hacen que cada instante
+                sea inolvidable.
+
+                <br><br>
+
+                Me encantará compartir contigo
+                esta fecha tan especial.
+
+            </p>
+
+
+
+            <!-- CUENTA REGRESIVA -->
+
+            <div class="contador-titulo">
+
+                Faltan para celebrar
+
+            </div>
+
+
+            <div class="contador">
+
+
+                <div class="contador-caja">
+
+                    <span
+                        id="dias"
+                        class="contador-numero">
+
+                        00
+
+                    </span>
+
+                    <span class="contador-texto">
+
+                        Días
+
+                    </span>
+
+                </div>
+
+
+
+                <div class="contador-caja">
+
+                    <span
+                        id="horas"
+                        class="contador-numero">
+
+                        00
+
+                    </span>
+
+                    <span class="contador-texto">
+
+                        Horas
+
+                    </span>
+
+                </div>
+
+
+
+                <div class="contador-caja">
+
+                    <span
+                        id="minutos"
+                        class="contador-numero">
+
+                        00
+
+                    </span>
+
+                    <span class="contador-texto">
+
+                        Minutos
+
+                    </span>
+
+                </div>
+
+
+
+                <div class="contador-caja">
+
+                    <span
+                        id="segundos"
+                        class="contador-numero">
+
+                        00
+
+                    </span>
+
+                    <span class="contador-texto">
+
+                        Segundos
+
+                    </span>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- BOTONES -->
+
+            <div class="botones">
+
+
+                <!--
+                    ==========================================
+                    WHATSAPP
+
+                    CAMBIA:
+                    521XXXXXXXXXX
+
+                    POR EL NÚMERO REAL.
+
+                    Ejemplo:
+
+                    522211234567
+                    ==========================================
+                -->
+
+                <a
+                    class="boton boton-whatsapp"
+                    href="https://wa.me/521XXXXXXXXXX?text=Hola%20Gaby%2C%20confirmo%20mi%20asistencia%20a%20tu%20celebraci%C3%B3n%20de%2050%20a%C3%B1os."
+                    target="_blank">
+
+                    CONFIRMAR ASISTENCIA
+
+                </a>
+
+
+
+                <!--
+                    ==========================================
+                    GOOGLE MAPS
+
+                    Cambia este enlace por el enlace
+                    de la ubicación del evento.
+                    ==========================================
+                -->
+
+                <a
+                    class="boton boton-maps"
+                    href="https://www.google.com/maps"
+                    target="_blank">
+
+                    CÓMO LLEGAR
+
+                </a>
+
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =====================================================
+         BOTÓN DE MÚSICA
+    ===================================================== -->
+
+    <button
+        class="boton-musica"
+        id="botonMusica"
+        aria-label="Reproducir música">
+
+        ♫
+
+    </button>
+
+
+
+    <!-- =====================================================
+         MÚSICA
+
+         Guarda el MP3 en la misma carpeta
+         con este nombre:
+
+         musica-piano.mp3
+    ===================================================== -->
+
+    <audio
+        id="musica"
+        loop>
+
+        <source
+            src="musica-piano.mp3"
+            type="audio/mpeg">
+
+    </audio>
+
+
+
+    <script>
+
+
+        /* =====================================================
+           CUENTA REGRESIVA
+        ===================================================== */
+
+        /*
+            31 de octubre de 2026
+            6:00 PM
+        */
+
+        const fechaEvento =
+            new Date(
+                "2026-10-31T18:00:00"
+            ).getTime();
+
+
+        function actualizarCuenta() {
+
+
+            const ahora =
+                new Date().getTime();
+
+
+            const diferencia =
+                fechaEvento - ahora;
+
+
+            if (diferencia <= 0) {
+
+                document.getElementById("dias")
+                    .textContent = "00";
+
+                document.getElementById("horas")
+                    .textContent = "00";
+
+                document.getElementById("minutos")
+                    .textContent = "00";
+
+                document.getElementById("segundos")
+                    .textContent = "00";
+
+                return;
+            }
+
+
+            const dias =
+                Math.floor(
+                    diferencia /
+                    (1000 * 60 * 60 * 24)
+                );
+
+
+            const horas =
+                Math.floor(
+                    (diferencia %
+                    (1000 * 60 * 60 * 24)) /
+                    (1000 * 60 * 60)
+                );
+
+
+            const minutos =
+                Math.floor(
+                    (diferencia %
+                    (1000 * 60 * 60)) /
+                    (1000 * 60)
+                );
+
+
+            const segundos =
+                Math.floor(
+                    (diferencia %
+                    (1000 * 60)) /
+                    1000
+                );
+
+
+            document.getElementById("dias")
+                .textContent =
+                String(dias).padStart(2, "0");
+
+
+            document.getElementById("horas")
+                .textContent =
+                String(horas).padStart(2, "0");
+
+
+            document.getElementById("minutos")
+                .textContent =
+                String(minutos).padStart(2, "0");
+
+
+            document.getElementById("segundos")
+                .textContent =
+                String(segundos).padStart(2, "0");
+
+        }
+
+
+        actualizarCuenta();
+
+
+        setInterval(
+            actualizarCuenta,
+            1000
+        );
+
+
+
+        /* =====================================================
+           MÚSICA
+        ===================================================== */
+
+        const musica =
+            document.getElementById("musica");
+
+
+        const botonMusica =
+            document.getElementById("botonMusica");
+
+
+        const botonEntrar =
+            document.getElementById("botonEntrar");
+
+
+        const pantallaInicio =
+            document.getElementById("pantallaInicio");
+
+
+        let reproduciendo = false;
+
+
+
+        /*
+            Al abrir la invitación,
+            el botón inicial intenta comenzar
+            la música.
+        */
+
+        botonEntrar.addEventListener(
+            "click",
+            function() {
+
+
+                pantallaInicio
+                    .classList.add("oculta");
+
+
+                musica.play()
+                    .then(function() {
+
+                        reproduciendo = true;
+
+                        botonMusica
+                            .classList
+                            .add("activa");
+
+                        botonMusica
+                            .textContent = "Ⅱ";
+
+                    })
+                    .catch(function() {
+
+                        reproduciendo = false;
+
+                    });
+
+            }
+        );
+
+
+
+        /* BOTÓN DE MÚSICA */
+
+        botonMusica.addEventListener(
+            "click",
+            function() {
+
+
+                if (reproduciendo) {
+
+
+                    musica.pause();
+
+
+                    reproduciendo =
+                        false;
+
+
+                    botonMusica
+                        .classList
+                        .remove("activa");
+
+
+                    botonMusica
+                        .textContent = "♫";
+
+
+                } else {
+
+
+                    musica.play();
+
+
+                    reproduciendo =
+                        true;
+
+
+                    botonMusica
+                        .classList
+                        .add("activa");
+
+
+                    botonMusica
+                        .textContent = "Ⅱ";
+
+                }
+
+            }
+        );
+
+
+
+        /* =====================================================
+           PÉTALOS / DETALLES FLOTANTES
+        ===================================================== */
+
+        function crearPetalo() {
+
+
+            const petalo =
+                document.createElement("div");
+
+
+            petalo.className =
+                "petalo";
+
+
+            /*
+                Usamos un pequeño detalle
+                floral en lugar de emojis grandes.
+            */
+
+            petalo.textContent =
+                "✦";
+
+
+            petalo.style.left =
+                Math.random() * 100 + "vw";
+
+
+            petalo.style.fontSize =
+                (8 + Math.random() * 7) + "px";
+
+
+            petalo.style.animationDuration =
+                (7 + Math.random() * 7) + "s";
+
+
+            document.body
+                .appendChild(petalo);
+
+
+            setTimeout(
+                function() {
+
+                    petalo.remove();
+
+                },
+                15000
+            );
+
+        }
+
+
+        setInterval(
+            crearPetalo,
+            1800
+        );
+
+
+    </script>
+
+
+</body>
+
+</html>
